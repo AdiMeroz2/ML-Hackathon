@@ -1,0 +1,228 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family sfdefault
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Subsection
+IML Hackathon
+\end_layout
+
+\begin_layout Subsubsection
+Introduction 
+\end_layout
+
+\begin_layout Standard
+This projects learns to predict the box-office revenue of a movie and its
+ viewer ranking, by receiving a data set that contains around 6,000 movies,
+ each with 22 features.
+\end_layout
+
+\begin_layout Subsubsection
+Observation 
+\end_layout
+
+\begin_layout Standard
+The first thing we did was observing the 22 features, and trying to figure
+ out their impact on the movie's revenue and viewer ranking.
+ Some of the features have a very clear correlation with the revenue or
+ ranking, for instance: 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Revenue by Original language
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../../Documents/pasted2.png
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+Movies that their original language is English, have the highest revenue
+ on average, as well as Japanese movies, while Russian and Spanish seem
+ to have a low revenue.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Revenue by movie genre
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename ../../../Documents/pasted3.png
+	scale 70
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Adventure, animation, family and fantasy movies have a high revenue, while
+ documentaries and TV movies don't.
+\end_layout
+
+\begin_layout Subsubsection
+Dataset cleaning 
+\end_layout
+
+\begin_layout Standard
+After observing, we've decided that the features :['id', 'belongs_to_collection'
+, 'original_title', 'homepage', 'overview', 'tagline', 'title', 'keywords'],
+ have no impact on the movie's revenue or viewer ranking, nor do they attribute
+ to the learning project, so we got rid of them.
+ In addition, about 25% of the budgets have a value of 0, which severely
+ affects the predict model.
+ Therefore, we've calculated the average of all the budgets that have a
+ real value, and replaced all the empty budgets with it.
+\end_layout
+
+\begin_layout Subsubsection
+Dummy variables
+\end_layout
+
+\begin_layout Standard
+We turned values inside the JSONs [genres, original_languages, cast, crew]
+ into dummy variables.
+ Also we added them for some frequent 
+\begin_inset Formula $keywords$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document

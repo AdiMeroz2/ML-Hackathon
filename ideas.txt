@@ -1,0 +1,18 @@
+budget - add mean budget to zero entries
+genres - create dummy features
+original_language - create dummy features
+vote_average - response
+vote_count - to be seen
+production_companies - maybe dummys??
+production_countries - same
+release_date - maybe divide into month and year, maybe even week
+run_time - remove zero entries
+spoken_languages - dummys
+status - remove all unreleased
+cast - maybe dummys??
+crew - same
+revenue - response
+removed: id, belongs_to_collection, homepage, original_title, overview, tagline, title, keywords
+
+ideas: Make different models, one for data that has the genre feature and one for data that doesn't/has a genre 
+we didn't see in training.
